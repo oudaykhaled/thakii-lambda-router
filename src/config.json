@@ -1,0 +1,31 @@
+{
+  "ai_services": [
+    {
+      "name": "ngrok-local",
+      "url": "https://6f2b54da37db.ngrok.app",
+      "priority": 1,
+      "timeout": 300,
+      "enabled": true,
+      "description": "Local development service via ngrok"
+    },
+    {
+      "name": "ecs-service",
+      "url": "http://13.59.55.73:5002",
+      "priority": 2,
+      "timeout": 300,
+      "enabled": false,
+      "description": "AWS ECS hosted service"
+    }
+  ],
+  "health_check_interval": 30,
+  "max_retries": 3,
+  "default_timeout": 300,
+  "circuit_breaker": {
+    "failure_threshold": 5,
+    "recovery_timeout": 60
+  },
+  "load_balancing": {
+    "strategy": "priority",
+    "round_robin_enabled": false
+  }
+}
